@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание №1</title>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+</head>
+<body>
+
+	<canvas id="canvas" height="700" width="700"></canvas>
+
+	<style>
+	
+
+	</style>
+
+	<script type="text/javascript">
+		
+		let canvas=document.getElementById("canvas");
+		let ctx=canvas.getContext("2d");
+
+		ctx.moveTo(50,50);
+		ctx.lineTo(150,150);
+		ctx.moveTo(150,50);
+		ctx.lineTo(50,150);
+
+
+		ctx.moveTo(200,150);
+		ctx.lineTo(250,50);
+		ctx.lineTo(300,150);
+		ctx.lineTo(200,150);
+		ctx.stroke();
+
+
+		ctx.beginPath();
+		ctx.arc(350,100,50,Math.PI*1.5,Math.PI/2);
+		ctx.stroke();
+
+	</script>
+
+</body>
+</html>

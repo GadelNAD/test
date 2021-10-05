@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание №2</title>
+</head>
+<body>
+	<input type="file" id="file">
+	<button id="btn">Загрузить</button>
+	<canvas id="canvas" height="500" width="700"></canvas>
+
+	<style>
+	
+
+	</style>
+
+	<script type="text/javascript">
+		
+		let canvas=document.getElementById("canvas");
+		let fileInp=document.getElementById("file");
+		let btn=document.getElementById("btn");
+		let ctx=canvas.getContext("2d");
+		let img=new Image();
+
+		btn.addEventListener("click", function(){
+			ctx.clearRect(0,0,500,700);
+			let reader=new FileReader();
+			reader.readAsDataURL(fileInp.files[0]);
+			reader.onload=function(e){				
+				img.src=e.currentTarget.result;
+				img.onload=function(){
+					ctx.drawImage(img,0,0);
+				}
+				
+			}
+		})
+
+		
+
+	</script>
+
+</body>
+</html>

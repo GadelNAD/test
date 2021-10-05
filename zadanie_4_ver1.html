@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Версия №1</title>
+</head>
+<body>
+
+	<canvas id="canvas" height="530" width="530" style="border:3px black solid"></canvas>
+
+	<script type="text/javascript">
+		
+		let canvas=document.getElementById("canvas");
+		let ctx=canvas.getContext("2d");
+		ctx.fillStyle="#56FF6C";
+		
+		let x=5;
+		let y=5;
+		let x2=5;
+		let y2=5;
+
+		let draw1=true;
+		let draw2=true;
+		let draw3=true;
+		let clear1=true;
+		let clear2=true;
+		let clear3=true;
+
+		function draw(){	
+			ctx.fillRect(x,y,100,100);
+			if(x<400 && y !=425 && draw1)
+				x+=105;
+
+			else if(y<400 && x!=5 && draw2)
+				y+=105;
+
+			else if(y==425 && x>5)
+				x-=105;
+
+			else if(y>110 && x<400 &&draw3){
+				y-=105;
+				draw1=false;}
+
+			else if (x<320 && y==110) {
+				x+=105;
+				draw2=false;}
+
+			else if(y<320 && x==320){
+				y+=105;
+				draw3=false;}
+
+			else if(x==320 && y==320)
+				x-=105;
+
+			else if(x==215 && y==320)
+				x-=105;
+
+			else if(x==110 && y==320)
+				y-=105;
+
+			else if(x==110 && y==215)
+				x+=105;
+		}
+
+
+
+		function clear(){	
+			ctx.clearRect(x2,y2,100,100);
+
+			if(x2<400 && y2 !=425 && clear1)
+				x2+=105;
+
+			else if(y2<400 && x2!=5 && clear2)
+				y2+=105;
+
+			else if(y2==425 && x2>5)
+				x2-=105;
+
+			else if(y2>110 && x2<400 &&clear3){
+				y2-=105;
+				clear1=false;}
+
+			else if (x2<320 && y2==110) {
+				x2+=105;
+				clear2=false;}
+
+			else if(y2<320 && x2==320){
+				y2+=105;
+				clear3=false;}
+
+			else if(x2==320 && y2==320)
+				x2-=105;
+
+			else if(x2==215 && y2==320)
+				x2-=105;
+
+			else if(x2==110 && y2==320)
+				y2-=105;
+
+			else if(x2==110 && y2==215)
+				x2+=105;
+		}
+
+
+		setInterval(draw, 1000);
+		setTimeout(startClean, 2000);
+		function startClean(){
+			setInterval(clear, 1000);
+		}
+		
+	</script>
+
+</body>
+</html>

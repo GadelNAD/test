@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание №3</title>
+</head>
+<body>
+
+	<canvas id="canvas" height="500" width="700" style="border:3px black solid"></canvas>
+	<input value="5" type="text" id="input">
+	<input type="color" id="color">
+
+	<script type="text/javascript">
+		
+		let canvas=document.getElementById("canvas");
+		let ctx=canvas.getContext("2d");
+		let input=document.getElementById("input");	
+		let color=document.getElementById("color");	
+
+		canvas.addEventListener('mousemove', function(e){
+			ctx.fillStyle=color.value;
+			if(e.which==1){
+			ctx.beginPath();
+			ctx.arc(e.offsetX,e.offsetY,input.value,0,Math.PI*2);
+			ctx.fill();}
+		})
+
+	</script>
+
+</body>
+</html>
